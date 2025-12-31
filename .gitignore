@@ -1,3 +1,4 @@
+@ -1,139 +1,7 @@
 # Logs
 logs
 *.log
@@ -137,3 +138,8 @@ dist
 # Vite logs files
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
+node_modules
+.vscode-test/
+*.vsix
+.history
+.repomix
