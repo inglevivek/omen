@@ -16,9 +16,9 @@ export function activate(context: vscode.ExtensionContext) {
         vscode.StatusBarAlignment.Right,
         100
     );
-    statusBarItem.text = "$(file-code) AI Context";
-    statusBarItem.tooltip = "AI Context Index";
-    statusBarItem.command = 'ai-context-index.openIndex';
+    statusBarItem.text = "$(file-code) Code Index";
+    statusBarItem.tooltip = "Omen Code Index";
+    statusBarItem.command = 'Omen.openIndex';
     statusBarItem.show();
     context.subscriptions.push(statusBarItem);
 
