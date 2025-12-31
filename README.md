@@ -4,8 +4,8 @@
 
 [![VS Code Extension](https://img.shields.io/badge/VS%20Code-Extension-0078d7?style=for-the-badge&logo=visual-studio-code)](https://marketplace.visualstudio.com/)
 [![Version](https://img.shields.io/badge/version-0.1.0-green?style=for-the-badge)]()
-[![License](https://img.shields.io/badge/license-MIT-blue?style=for-the-badge)](LICENSE)
-[![Publisher](https://img.shields.io/badge/publisher-Chronos-orange?style=for-the-badge)]()
+[![License](https://img.shields.io/badge/license-Apache%202.0-blue?style=for-the-badge)](LICENSE)
+[![Publisher](https://img.shields.io/badge/publisher-vivekingle-orange?style=for-the-badge)]()
 
 **Automatically generate comprehensive project documentation for AI assistants**
 
