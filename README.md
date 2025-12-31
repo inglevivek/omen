@@ -17,7 +17,7 @@
 
 ## 📖 Overview
 
-Omen is a VS Code extension that automatically scans your codebase and generates a detailed **AI_CONTEXT.md** file. This file helps AI assistants (Cursor, GitHub Copilot, Claude, ChatGPT) understand your project structure, API endpoints, database schema, and code organization.
+Omen is a VS Code extension that automatically scans your codebase and generates a detailed **code-index.md** file. This file helps AI assistants (Cursor, GitHub Copilot, Claude, ChatGPT) understand your project structure, API endpoints, database schema, and code organization.
 Testing in progress across technolgy frameworks.
 
 ### Why Omen?
