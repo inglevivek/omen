@@ -1,0 +1,1925 @@
+This file is a merged representation of the entire codebase, combined into a single document by Repomix.
+
+<file_summary>
+This section contains a summary of this file.
+
+<purpose>
+This file contains a packed representation of the entire repository's contents.
+It is designed to be easily consumable by AI systems for analysis, code review,
+or other automated processes.
+</purpose>
+
+<file_format>
+The content is organized as follows:
+1. This summary section
+2. Repository information
+3. Directory structure
+4. Repository files (if enabled)
+5. Multiple file entries, each consisting of:
+  - File path as an attribute
+  - Full contents of the file
+</file_format>
+
+<usage_guidelines>
+- This file should be treated as read-only. Any changes should be made to the
+  original repository files, not this packed version.
+- When processing this file, use the file path to distinguish
+  between different files in the repository.
+- Be aware that this file may contain sensitive information. Handle it with
+  the same level of security as you would the original repository.
+</usage_guidelines>
+
+<notes>
+- Some files may have been excluded based on .gitignore rules and Repomix's configuration
+- Binary files are not included in this packed representation. Please refer to the Repository Structure section for a complete list of file paths, including binary files
+- Files matching patterns in .gitignore are excluded
+- Files matching default ignore patterns are excluded
+- Files are sorted by Git change count (files with more changes are at the bottom)
+</notes>
+
+</file_summary>
+
+<directory_structure>
+.gitignore
+.history/src/extension_20251231200851.ts
+.history/src/extension_20251231200853.ts
+.history/src/extension_20251231200854.ts
+.history/src/extension_20251231200911.ts
+.history/src/extension_20251231200915.ts
+.repomix/bundles.json
+.vscode-test.mjs
+.vscodeignore
+CHANGELOG.md
+esbuild.js
+eslint.config.mjs
+extension/icon.png
+Gemini_Generated_Image_44wzva44wzva44wz.png
+icon.png
+package.json
+README.md
+src/extension.ts
+src/indexer/fileScanner.ts
+src/indexer/generator.ts
+src/indexer/parser.ts
+src/test/extension.test.ts
+src/types/index.ts
+src/utils/config.ts
+src/web-tree-sitter-local.d.ts
+tsconfig.json
+vsc-extension-quickstart.md
+</directory_structure>
+
+<files>
+This section contains the contents of the repository's files.
+
+<file path=".gitignore">
+out
+dist
+node_modules
+.vscode-test/
+*.vsix
+</file>
+
+<file path=".history/src/extension_20251231200851.ts">
+
+</file>
+
+<file path=".history/src/extension_20251231200853.ts">
+import * as vscode from 'vscode';
+
+export function activate(context: vscode.ExtensionContext) {
+    console.log('AI Context Index extension is now active!');
+
+    let disposable = vscode.commands.registerCommand(
+        'ai-context-index.generateIndex', 
+        async () => {
+            vscode.window.showInformationMessage('Generating AI Context Index...');
+            
+            // Your indexing logic will go here
+            const workspaceFolders = vscode.workspace.workspaceFolders;
+            if (!workspaceFolders) {
+                vscode.window.showErrorMessage('No workspace folder open!');
+                return;
+            }
+            
+            const rootPath = workspaceFolders[0].uri.fsPath;
+            vscode.window.showInformationMessage(`Workspace: ${rootPath}`);
+        }
+    );
+
+    context.subscriptions.push(disposable);
+}
+
+export function deactivate() {}
+</file>
+
+<file path=".history/src/extension_20251231200854.ts">
+import * as vscode from 'vscode';
+
+export function activate(context: vscode.ExtensionContext) {
+    console.log('AI Context Index extension is now active!');
+
+    let disposable = vscode.commands.registerCommand(
+        'ai-context-index.generateIndex', 
+        async () => {
+            vscode.window.showInformationMessage('Generating AI Context Index...');
+            
+            // Your indexing logic will go here
+            const workspaceFolders = vscode.workspace.workspaceFolders;
+            if (!workspaceFolders) {
+                vscode.window.showErrorMessage('No workspace folder open!');
+                return;
+            }
+            
+            const rootPath = workspaceFolders[0].uri.fsPath;
+            vscode.window.showInformationMessage(`Workspace: ${rootPath}`);
+        }
+    );
+
+    context.subscriptions.push(disposable);
+}
+
+export function deactivate() {}
+</file>
+
+<file path=".history/src/extension_20251231200911.ts">
+import * as vscode from 'vscode';
+
+export function activate(context: vscode.ExtensionContext) {
+    console.log('AI Context Index extension is now active!');
+
+    let disposable = vscode.commands.registerCommand(
+        'ai-context-index.generateIndex', 
+        async () => {
+            vscode.window.showInformationMessage('Generating AI Context Index...');
+            
+            // Your indexing logic will go here
+            const workspaceFolders = vscode.workspace.workspaceFolders;
+            if (!workspaceFolders) {
+                vscode.window.showErrorMessage('No workspace folder open!');
+                return;
+            }
+            
+            const rootPath = workspaceFolders[0].uri.fsPath;
+            vscode.window.showInformationMessage(`Workspace: ${rootPath}`);
+        }
+    );
+
+    context.subscriptions.push(disposable);
+}
+
+export function deactivate() {}
+</file>
+
+<file path=".history/src/extension_20251231200915.ts">
+import * as vscode from 'vscode';
+
+export function activate(context: vscode.ExtensionContext) {
+    console.log('AI Context Index extension is now active!');
+
+    let disposable = vscode.commands.registerCommand(
+        'ai-context-index.generateIndex', 
+        async () => {
+            vscode.window.showInformationMessage('Generating AI Context Index...');
+            
+            // Your indexing logic will go here
+            const workspaceFolders = vscode.workspace.workspaceFolders;
+            if (!workspaceFolders) {
+                vscode.window.showErrorMessage('No workspace folder open!');
+                return;
+            }
+            
+            const rootPath = workspaceFolders[0].uri.fsPath;
+            vscode.window.showInformationMessage(`Workspace: ${rootPath}`);
+        }
+    );
+
+    context.subscriptions.push(disposable);
+}
+
+export function deactivate() {}
+</file>
+
+<file path=".repomix/bundles.json">
+{
+  "bundles": {
+    "Thoth-344": {
+      "name": "Thoth",
+      "created": "2025-12-31T16:59:35.929Z",
+      "lastUsed": "2025-12-31T16:59:35.929Z",
+      "tags": [],
+      "files": []
+    }
+  }
+}
+</file>
+
+<file path=".vscode-test.mjs">
+import { defineConfig } from '@vscode/test-cli';
+
+export default defineConfig({
+	files: 'out/test/**/*.test.js',
+});
+</file>
+
+<file path=".vscodeignore">
+.vscode/**
+.vscode-test/**
+src/**
+.gitignore
+.yarnrc
+vsc-extension-quickstart.md
+**/tsconfig.json
+**/.eslintrc.json
+**/*.map
+**/*.ts
+</file>
+
+<file path="CHANGELOG.md">
+# Change Log
+
+All notable changes to the "thoth-files-and-functions-indexer" extension will be documented in this file.
+
+Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
+
+## [Unreleased]
+
+- Initial release
+</file>
+
+<file path="esbuild.js">
+const esbuild = require("esbuild");
+
+const production = process.argv.includes('--production');
+const watch = process.argv.includes('--watch');
+
+/**
+ * @type {import('esbuild').Plugin}
+ */
+const esbuildProblemMatcherPlugin = {
+	name: 'esbuild-problem-matcher',
+
+	setup(build) {
+		build.onStart(() => {
+			console.log('[watch] build started');
+		});
+		build.onEnd((result) => {
+			result.errors.forEach(({ text, location }) => {
+				console.error(`✘ [ERROR] ${text}`);
+				console.error(`    ${location.file}:${location.line}:${location.column}:`);
+			});
+			console.log('[watch] build finished');
+		});
+	},
+};
+
+async function main() {
+	const ctx = await esbuild.context({
+		entryPoints: [
+			'src/extension.ts'
+		],
+		bundle: true,
+		format: 'cjs',
+		minify: production,
+		sourcemap: !production,
+		sourcesContent: false,
+		platform: 'node',
+		outfile: 'dist/extension.js',
+		external: ['vscode'],
+		logLevel: 'silent',
+		plugins: [
+			/* add to the end of plugins array */
+			esbuildProblemMatcherPlugin,
+		],
+	});
+	if (watch) {
+		await ctx.watch();
+	} else {
+		await ctx.rebuild();
+		await ctx.dispose();
+	}
+}
+
+main().catch(e => {
+	console.error(e);
+	process.exit(1);
+});
+</file>
+
+<file path="eslint.config.mjs">
+import typescriptEslint from "typescript-eslint";
+
+export default [{
+    files: ["**/*.ts"],
+}, {
+    plugins: {
+        "@typescript-eslint": typescriptEslint.plugin,
+    },
+
+    languageOptions: {
+        parser: typescriptEslint.parser,
+        ecmaVersion: 2022,
+        sourceType: "module",
+    },
+
+    rules: {
+        "@typescript-eslint/naming-convention": ["warn", {
+            selector: "import",
+            format: ["camelCase", "PascalCase"],
+        }],
+
+        curly: "warn",
+        eqeqeq: "warn",
+        "no-throw-literal": "warn",
+        semi: "warn",
+    },
+}];
+</file>
+
+<file path="package.json">
+{
+  "name": "thoth-files-and-functions-indexer",
+  "displayName": "Thoth - Files and Functions Indexer",
+  "description": "Generates AI-readable project index with functions, files, and structure for better AI-assisted coding.",
+  "version": "0.1.0",
+  "publisher": "Chronos",
+  "author": {
+    "name": "Vivek Ingle",
+    "url": "https://github.com/inglevivek/thoth"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/inglevivek/thoth"
+  },
+  "bugs": {
+    "url": "https://github.com/inglevivek/thoth/issues"
+  },
+  "homepage": "https://github.com/inglevivek/thoth#readme",
+  "license": "MIT",
+  "icon": "extension/icon.png",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Programming Languages",
+    "Other"
+  ],
+  "keywords": [
+    "ai",
+    "context",
+    "index",
+    "llm",
+    "code generation",
+    "cursor",
+    "copilot",
+    "assistant",
+    "documentation"
+  ],
+  "activationEvents": [],
+  "main": "./dist/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "ai-context-index.generateIndex",
+        "title": "Generate AI Context Index",
+        "category": "Thoth Context Generate"
+      },
+      {
+        "command": "ai-context-index.refreshIndex",
+        "title": "Refresh AI Context Index",
+        "category": "Thoth Context Refresh"
+      },
+      {
+        "command": "ai-context-index.openIndex",
+        "title": "Open AI Context Index",
+        "category": "Thoth Context Open"
+      }
+    ],
+    "configuration": {
+      "type": "object",
+      "title": "Thoth Context",
+      "properties": {
+        "thoth.outputPath": {
+          "type": "string",
+          "default": ".ai-context",
+          "description": "Directory where index files will be generated"
+        },
+        "thoth.outputFormat": {
+          "type": "string",
+          "enum": [
+            "markdown",
+            "json",
+            "both"
+          ],
+          "default": "markdown",
+          "description": "Output format for the index file"
+        },
+        "thoth.includePatterns": {
+          "type": "array",
+          "default": [
+            "src/**/*.ts",
+            "src/**/*.tsx",
+            "src/**/*.js",
+            "src/**/*.jsx",
+            "src/**/*.py"
+          ],
+          "description": "Glob patterns for files to include in indexing"
+        },
+        "thoth.excludePatterns": {
+          "type": "array",
+          "default": [
+            "**/node_modules/**",
+            "**/.git/**",
+            "**/dist/**",
+            "**/build/**",
+            "**/*.test.*",
+            "**/*.spec.*"
+          ],
+          "description": "Glob patterns for files to exclude from indexing"
+        },
+        "thoth.autoRefresh": {
+          "type": "boolean",
+          "default": true,
+          "description": "Automatically refresh index on file save"
+        },
+        "thoth.debounceDelay": {
+          "type": "number",
+          "default": 3000,
+          "description": "Delay in milliseconds before auto-refresh triggers (minimum 1000ms)"
+        },
+        "thoth.includeClasses": {
+          "type": "boolean",
+          "default": true,
+          "description": "Include class definitions in the index"
+        },
+        "thoth.includeInterfaces": {
+          "type": "boolean",
+          "default": true,
+          "description": "Include interface/type definitions in the index"
+        },
+        "thoth.includeImports": {
+          "type": "boolean",
+          "default": false,
+          "description": "Include import/export statements in the index"
+        },
+        "thoth.maxFileSize": {
+          "type": "number",
+          "default": 1048576,
+          "description": "Maximum file size in bytes to process (default 1MB)"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run package",
+    "compile": "npm run check-types && npm run lint && node esbuild.js",
+    "watch": "npm-run-all -p watch:*",
+    "watch:esbuild": "node esbuild.js --watch",
+    "watch:tsc": "tsc --noEmit --watch --project tsconfig.json",
+    "package": "npm run check-types && npm run lint && node esbuild.js --production",
+    "compile-tests": "tsc -p . --outDir out",
+    "watch-tests": "tsc -p . -w --outDir out",
+    "pretest": "npm run compile-tests && npm run compile && npm run lint",
+    "check-types": "tsc --noEmit",
+    "lint": "eslint src",
+    "test": "vscode-test",
+    "rebuild": "electron-rebuild -f -w tree-sitter -w tree-sitter-javascript -w tree-sitter-python -w tree-sitter-typescript",
+    "postinstall": "npm run rebuild"
+  },
+  "devDependencies": {
+    "@electron/rebuild": "^4.0.2",
+    "@types/glob": "^8.1.0",
+    "@types/mocha": "^10.0.10",
+    "@types/node": "^22.19.3",
+    "@types/vscode": "^1.85.0",
+    "@typescript-eslint/typescript-estree": "^6.15.0",
+    "@vscode/test-cli": "^0.0.12",
+    "@vscode/test-electron": "^2.5.2",
+    "esbuild": "^0.27.1",
+    "eslint": "^9.39.1",
+    "npm-run-all": "^4.1.5",
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.48.1"
+  },
+  "dependencies": {
+    "@typescript-eslint/typescript-estree": "^6.15.0",
+    "glob": "^8.1.0",
+    "ignore": "^5.3.0"
+  }
+}
+</file>
+
+<file path="README.md">
+# AI Context Index
+
+Automatically generates AI-readable index of your project structure and functions. Perfect for developers using AI coding assistants like Cursor, Copilot, or Claude.
+
+## Features
+
+- 🔍 **Automatic Indexing**: Scans TypeScript, JavaScript, and Python files
+- 📝 **Multiple Formats**: Generate Markdown or JSON output
+- ⚡ **Auto-Refresh**: Automatically updates on file save
+- 🎯 **Smart Filtering**: Respects .gitignore and custom patterns
+- 🏗️ **Complete Structure**: Captures functions, classes, interfaces, and imports
+
+## Usage
+
+1. Open Command Palette (`Ctrl+Shift+P` / `Cmd+Shift+P`)
+2. Run `Generate AI Context Index`
+3. Find the generated index in `.ai-context/project-index.md`
+
+## Commands
+
+- `AI Context: Generate AI Context Index` - Create new index
+- `AI Context: Refresh AI Context Index` - Update existing index
+- `AI Context: Open AI Context Index` - Open the index file
+
+## Configuration
+
+{
+"aiContextIndex.outputPath": ".ai-context",
+"aiContextIndex.outputFormat": "markdown",
+"aiContextIndex.autoRefresh": true,
+"aiContextIndex.debounceDelay": 3000
+}
+## Benefits for AI Coding
+
+- Helps AI remember function names and locations
+- Provides complete project structure context
+- Reduces token usage compared to uploading full files
+- Works seamlessly with Cursor, Copilot, and other AI tools
+
+## Requirements
+
+- VS Code 1.85.0 or higher
+- Works with Cursor IDE
+
+## Extension Settings
+
+See VS Code Settings UI or `package.json` for full configuration options.
+
+## Release Notes
+
+### 0.1.0
+
+Initial release with core functionality.
+
+## License
+
+MIT
+</file>
+
+<file path="src/extension.ts">
+import * as vscode from 'vscode';
+import { generateIndex } from './indexer/generator';
+import { getConfig } from './utils/config';
+import * as path from 'path';
+import * as fs from 'fs';
+
+let statusBarItem: vscode.StatusBarItem;
+let fileWatcher: vscode.FileSystemWatcher | undefined;
+let debounceTimer: NodeJS.Timeout | undefined;
+
+export function activate(context: vscode.ExtensionContext) {
+    console.log('AI Context Index extension is now active');
+
+    // Create status bar item
+    statusBarItem = vscode.window.createStatusBarItem(
+        vscode.StatusBarAlignment.Right,
+        100
+    );
+    statusBarItem.text = "$(file-code) AI Context";
+    statusBarItem.tooltip = "AI Context Index";
+    statusBarItem.command = 'ai-context-index.openIndex';
+    statusBarItem.show();
+    context.subscriptions.push(statusBarItem);
+
+    // Register commands
+    const generateCommand = vscode.commands.registerCommand(
+        'ai-context-index.generateIndex',
+        async () => {
+            await handleGenerateIndex();
+        }
+    );
+
+    const refreshCommand = vscode.commands.registerCommand(
+        'ai-context-index.refreshIndex',
+        async () => {
+            await handleGenerateIndex(true);
+        }
+    );
+
+    const openCommand = vscode.commands.registerCommand(
+        'ai-context-index.openIndex',
+        async () => {
+            await openIndexFile();
+        }
+    );
+
+    context.subscriptions.push(generateCommand, refreshCommand, openCommand);
+
+    // Setup file watcher if auto-refresh is enabled
+    setupFileWatcher(context);
+
+    // Generate index on activation if workspace is open
+    if (vscode.workspace.workspaceFolders && vscode.workspace.workspaceFolders.length > 0) {
+        vscode.window.showInformationMessage(
+            'AI Context Index: Ready! Use "Generate AI Context Index" to create index.'
+        );
+    }
+}
+
+async function handleGenerateIndex(isRefresh: boolean = false) {
+    const workspaceFolder = vscode.workspace.workspaceFolders?.[0];
+    
+    if (!workspaceFolder) {
+        vscode.window.showErrorMessage('No workspace folder open');
+        return;
+    }
+
+    const action = isRefresh ? 'Refreshing' : 'Generating';
+    statusBarItem.text = `$(sync~spin) ${action}...`;
+
+    try {
+        await vscode.window.withProgress(
+            {
+                location: vscode.ProgressLocation.Notification,
+                title: `${action} AI Context Index`,
+                cancellable: false
+            },
+            async (progress) => {
+                progress.report({ increment: 0, message: 'Scanning files...' });
+                
+                const result = await generateIndex(workspaceFolder.uri.fsPath);
+                
+                progress.report({ increment: 100, message: 'Complete!' });
+                
+                vscode.window.showInformationMessage(
+                    `AI Context Index ${isRefresh ? 'refreshed' : 'generated'}: ${result.fileCount} files, ${result.functionCount} functions`
+                );
+                
+                statusBarItem.text = "$(file-code) AI Context";
+            }
+        );
+    } catch (error) {
+        const errorMessage = error instanceof Error ? error.message : 'Unknown error';
+        vscode.window.showErrorMessage(`Failed to generate index: ${errorMessage}`);
+        statusBarItem.text = "$(error) AI Context";
+    }
+}
+
+async function openIndexFile() {
+    const workspaceFolder = vscode.workspace.workspaceFolders?.[0];
+    
+    if (!workspaceFolder) {
+        vscode.window.showErrorMessage('No workspace folder open');
+        return;
+    }
+
+    const config = getConfig();
+    const indexPath = path.join(
+        workspaceFolder.uri.fsPath,
+        config.outputPath,
+        'project-index.md'
+    );
+
+    if (!fs.existsSync(indexPath)) {
+        const result = await vscode.window.showInformationMessage(
+            'Index file not found. Generate it now?',
+            'Generate',
+            'Cancel'
+        );
+        
+        if (result === 'Generate') {
+            await handleGenerateIndex();
+            // Try to open again after generation
+            if (fs.existsSync(indexPath)) {
+                const doc = await vscode.workspace.openTextDocument(indexPath);
+                await vscode.window.showTextDocument(doc);
+            }
+        }
+        return;
+    }
+
+    const doc = await vscode.workspace.openTextDocument(indexPath);
+    await vscode.window.showTextDocument(doc);
+}
+
+function setupFileWatcher(context: vscode.ExtensionContext) {
+    const config = getConfig();
+    
+    if (!config.autoRefresh) {
+        return;
+    }
+
+    // Clean up existing watcher
+    if (fileWatcher) {
+        fileWatcher.dispose();
+    }
+
+    // Create file watcher for workspace files
+    fileWatcher = vscode.workspace.createFileSystemWatcher(
+        '**/*.{ts,tsx,js,jsx,py}',
+        false,
+        false,
+        false
+    );
+
+    const handleFileChange = () => {
+        if (debounceTimer) {
+            clearTimeout(debounceTimer);
+        }
+
+        const delay = Math.max(config.debounceDelay, 1000);
+        
+        debounceTimer = setTimeout(async () => {
+            console.log('Auto-refreshing AI Context Index...');
+            await handleGenerateIndex(true);
+        }, delay);
+    };
+
+    fileWatcher.onDidChange(handleFileChange);
+    fileWatcher.onDidCreate(handleFileChange);
+    fileWatcher.onDidDelete(handleFileChange);
+
+    context.subscriptions.push(fileWatcher);
+}
+
+export function deactivate() {
+    if (fileWatcher) {
+        fileWatcher.dispose();
+    }
+    if (debounceTimer) {
+        clearTimeout(debounceTimer);
+    }
+    if (statusBarItem) {
+        statusBarItem.dispose();
+    }
+}
+</file>
+
+<file path="src/indexer/fileScanner.ts">
+import * as fs from 'fs';
+import * as path from 'path';
+import ignore from 'ignore';
+import { getConfig } from '../utils/config';
+
+export async function scanWorkspace(workspaceRoot: string): Promise<string[]> {
+    const config = getConfig();
+    
+    // Load .gitignore if exists
+    const ig = ignore();
+    const gitignorePath = path.join(workspaceRoot, '.gitignore');
+    
+    if (fs.existsSync(gitignorePath)) {
+        const gitignoreContent = fs.readFileSync(gitignorePath, 'utf-8');
+        ig.add(gitignoreContent);
+    }
+    
+    // Add configured exclude patterns
+    ig.add(config.excludePatterns);
+
+    const files: Set<string> = new Set();
+
+    // Supported extensions
+    const supportedExtensions = ['.ts', '.tsx', '.js', '.jsx', '.py'];
+
+    function scanDirectory(dir: string) {
+        try {
+            const entries = fs.readdirSync(dir, { withFileTypes: true });
+
+            for (const entry of entries) {
+                const fullPath = path.join(dir, entry.name);
+                const relativePath = path.relative(workspaceRoot, fullPath);
+
+                // Skip if ignored
+                if (ig.ignores(relativePath)) {
+                    continue;
+                }
+
+                if (entry.isDirectory()) {
+                    // Recursively scan subdirectory
+                    scanDirectory(fullPath);
+                } else if (entry.isFile()) {
+                    const ext = path.extname(entry.name);
+                    
+                    // Check if supported extension
+                    if (supportedExtensions.includes(ext)) {
+                        try {
+                            const stats = fs.statSync(fullPath);
+                            if (stats.size <= config.maxFileSize) {
+                                files.add(fullPath);
+                            }
+                        } catch (error) {
+                            console.error(`Failed to stat file ${fullPath}:`, error);
+                        }
+                    }
+                }
+            }
+        } catch (error) {
+            console.error(`Failed to scan directory ${dir}:`, error);
+        }
+    }
+
+    // Start scanning from workspace root
+    scanDirectory(workspaceRoot);
+
+    return Array.from(files);
+}
+
+export function readFileContent(filePath: string): string {
+    return fs.readFileSync(filePath, 'utf-8');
+}
+</file>
+
+<file path="src/indexer/generator.ts">
+import * as fs from 'fs';
+import * as path from 'path';
+import { scanWorkspace, readFileContent } from './fileScanner';
+import { parseFile } from './parser';
+import { ProjectIndex, GenerationResult, ApiEndpoint, DbTable, DbColumn } from '../types';
+import { getConfig } from '../utils/config';
+
+export async function generateIndex(workspaceRoot: string): Promise<GenerationResult> {
+  const config = getConfig();
+  const files = await scanWorkspace(workspaceRoot);
+
+  const projectIndex: ProjectIndex = {
+    projectName: path.basename(workspaceRoot),
+    generated: new Date().toISOString(),
+    fileCount: 0,
+    functionCount: 0,
+    classCount: 0,
+    files: [],
+    techStack: [],
+    apiEndpoints: [],
+    dbSchema: []
+  };
+
+  const detectedTechs = new Set<string>();
+  const apiEndpoints: ApiEndpoint[] = [];
+  const dbTables: DbTable[] = [];
+
+  for (const file of files) {
+    try {
+      const content = readFileContent(file);
+      const fileIndex = parseFile(file, content, workspaceRoot);
+
+      projectIndex.files.push(fileIndex);
+      projectIndex.fileCount++;
+      projectIndex.functionCount += fileIndex.functions.length;
+      projectIndex.classCount += fileIndex.classes.length;
+
+      // Detect tech stack from imports
+      fileIndex.imports.forEach(imp => {
+        if (imp.source.includes('flask')) { detectedTechs.add('Flask'); }
+        if (imp.source.includes('express')) { detectedTechs.add('Express'); }
+        if (imp.source.includes('fastapi')) { detectedTechs.add('FastAPI'); }
+        if (imp.source.includes('react')) { detectedTechs.add('React'); }
+        if (imp.source.includes('next')) { detectedTechs.add('Next.js'); }
+        if (imp.source.includes('vue')) { detectedTechs.add('Vue'); }
+        if (imp.source.includes('sqlalchemy')) { detectedTechs.add('SQLAlchemy'); }
+        if (imp.source.includes('mongoose')) { detectedTechs.add('MongoDB/Mongoose'); }
+        if (imp.source.includes('prisma')) { detectedTechs.add('Prisma'); }
+        });
+
+      // Extract API endpoints from Flask/Express routes
+      if (fileIndex.language === 'python') {
+        fileIndex.functions.forEach(func => {
+            // Match decorator-style routes
+            const lines = content.split('\n');
+            let routePath = '';
+            let routeMethods: string[] = [];
+            
+            for (let i = func.line - 10; i < func.line; i++) {
+                if (i < 0 || i >= lines.length) { continue; }
+                const line = lines[i];
+                
+                // Match @bp.route('/path', methods=['GET', 'POST'])
+                const routeMatch = line.match(/@\w+\.route\(['"]([^'"]+)['"]/);
+                if (routeMatch) {
+                routePath = routeMatch[1];
+                }
+                
+                // Match methods in same or next line
+                const methodMatch = line.match(/methods\s*=\s*\[([^\]]+)\]/);
+                if (methodMatch) {
+                const methodsStr = methodMatch[1];
+                routeMethods = methodsStr.match(/['"]([A-Z]+)['"]/g)?.map(m => m.replace(/['"]/g, '')) || ['GET'];
+                }
+            }
+            
+            // If route found, add endpoint
+            if (routePath) {
+                routeMethods.forEach(method => {
+                apiEndpoints.push({
+                    method,
+                    path: routePath,
+                    handler: func.name,
+                    file: fileIndex.relativePath,
+                    line: func.line,
+                    auth: content.includes('@jwt_required') || func.description?.toLowerCase().includes('auth')
+                });
+                });
+            }
+            });
+      }
+
+      // Extract database schema from SQLAlchemy models
+      if (fileIndex.language === 'python' && content.includes('db.Model')) {
+        fileIndex.classes.forEach(cls => {
+          if (cls.properties && cls.properties.length > 0) {
+            const columns: DbColumn[] = cls.properties.map(prop => {
+              const [name, typeInfo] = prop.split(':').map(s => s.trim());
+              const isPrimary = typeInfo.includes('primary_key');
+              const isNullable = !typeInfo.includes('nullable=False');
+              const foreignMatch = typeInfo.match(/ForeignKey\\(['"](\\w+\\.\\w+)['"])/);
+                
+              return {
+                name,
+                type: typeInfo.split('(')[0],
+                nullable: isNullable,
+                primary: isPrimary,
+                foreign: foreignMatch ? foreignMatch[1] : undefined
+              };
+            });
+              
+
+            dbTables.push({
+              name: cls.name,
+              file: fileIndex.relativePath,
+              line: cls.line,
+              columns
+            });
+          }
+        });
+      }
+
+    } catch (error) {
+      console.error(`Failed to parse ${file}:`, error);
+    }
+  }
+
+  projectIndex.techStack = Array.from(detectedTechs).sort();
+  projectIndex.apiEndpoints = apiEndpoints;
+  projectIndex.dbSchema = dbTables;
+
+  // Output directory
+  const outputDir = config.outputPath === '.' 
+    ? workspaceRoot 
+    : path.join(workspaceRoot, config.outputPath);
+
+  if (!fs.existsSync(outputDir)) {
+    fs.mkdirSync(outputDir, { recursive: true });
+  }
+
+  // Generate outputs
+  if (config.outputFormat === 'markdown' || config.outputFormat === 'both') {
+    const markdown = generateMarkdown(projectIndex);
+    fs.writeFileSync(
+      path.join(outputDir, 'AI_CONTEXT.md'),
+      markdown
+    );
+  }
+
+  if (config.outputFormat === 'json' || config.outputFormat === 'both') {
+    fs.writeFileSync(
+      path.join(outputDir, 'AI_CONTEXT.json'),
+      JSON.stringify(projectIndex, null, 2)
+    );
+  }
+
+  if (config.outputPath !== '.') {
+    const gitignorePath = path.join(outputDir, '.gitignore');
+    if (!fs.existsSync(gitignorePath)) {
+      fs.writeFileSync(gitignorePath, '*\n!.gitignore\n');
+    }
+  }
+
+  return {
+    fileCount: projectIndex.fileCount,
+    functionCount: projectIndex.functionCount,
+    classCount: projectIndex.classCount
+  };
+}
+
+function generateMarkdown(index: ProjectIndex): string {
+  let md = `# AI Context - ${index.projectName}\n\n`;
+  md += `> **Auto-generated project documentation for AI assistants**\n`;
+  md += `> Last updated: ${new Date(index.generated).toLocaleString()}\n\n`;
+
+  // Tech Stack
+  if (index.techStack && index.techStack.length > 0) {
+    md += `## 🛠️ Tech Stack\n\n`;
+    index.techStack.forEach(tech => {
+      md += `- ${tech}\n`;
+    });
+    md += `\n`;
+  }
+
+  // Statistics
+  md += `## 📊 Project Statistics\n\n`;
+  md += `| Metric | Count |\n`;
+  md += `|--------|-------|\n`;
+  md += `| Files | ${index.fileCount} |\n`;
+  md += `| Functions | ${index.functionCount} |\n`;
+  md += `| Classes | ${index.classCount} |\n`;
+  if (index.apiEndpoints) {
+    md += `| API Endpoints | ${index.apiEndpoints.length} |\n`;
+  }
+  if (index.dbSchema) {
+    md += `| Database Tables | ${index.dbSchema.length} |\n`;
+  }
+  md += `\n`;
+
+  // API Endpoints
+  if (index.apiEndpoints && index.apiEndpoints.length > 0) {
+    md += `## 🌐 API Endpoints\n\n`;
+    md += `| Method | Path | Handler | Auth | File |\n`;
+    md += `|--------|------|---------|------|------|\n`;
+    index.apiEndpoints.forEach(endpoint => {
+      const authIcon = endpoint.auth ? '🔒' : '🔓';
+      const method = '`' + endpoint.method + '`';
+      const epath = '`' + endpoint.path + '`';
+      const handler = '`' + endpoint.handler + '()`';
+      md += `| ${method} | ${epath} | ${handler} | ${authIcon} | ${endpoint.file}:${endpoint.line} |\n`;
+    });
+    md += `\n`;
+  }
+
+  // Database Schema
+  if (index.dbSchema && index.dbSchema.length > 0) {
+    md += `## 🗄️ Database Schema\n\n`;
+    index.dbSchema.forEach(table => {
+      md += `### \`${table.name}\` Table\n\n`;
+      md += `**File**: ${table.file}:${table.line}\n\n`;
+      md += `| Column | Type | Constraints |\n`;
+      md += `|--------|------|-------------|\n`;
+      table.columns.forEach(col => {
+        const constraints: string[] = [];
+        if (col.primary) { constraints.push('PRIMARY KEY'); }
+        if (!col.nullable) { constraints.push('NOT NULL'); }
+        if (col.foreign) { constraints.push(`FK → ${col.foreign}`);}
+        const colName = '`' + col.name + '`';
+        md += `| ${colName} | ${col.type} | ${constraints.join(', ') || '-'} |\n`;
+      });
+      md += `\n`;
+    });
+  }
+
+  md += `---\n\n`;
+
+  // Group files by directory
+  const filesByDir: { [key: string]: typeof index.files } = {};
+  for (const file of index.files) {
+    const dir = path.dirname(file.relativePath);
+    if (!filesByDir[dir]) {
+      filesByDir[dir] = [];
+    }
+    filesByDir[dir].push(file);
+  }
+
+  md += `## 📁 File Structure\n\n`;
+  const sortedDirs = Object.keys(filesByDir).sort();
+
+  for (const dir of sortedDirs) {
+    const displayDir = dir === '.' ? '/' : dir;
+    md += `### ${displayDir}\n\n`;
+
+    for (const file of filesByDir[dir]) {
+      const fileName = '`' + path.basename(file.path) + '`';
+      md += `#### ${fileName} [${file.language}]\n\n`;
+
+      // Classes with documentation
+      if (file.classes.length > 0) {
+        md += `**Classes**:\n\n`;
+        for (const cls of file.classes) {
+          const exportTag = cls.isExported ? '🔓' : '🔒';
+          const className = '`' + cls.name + '`';
+          md += `- ${exportTag} ${className} (Line ${cls.line})\n`;
+
+          if (cls.description) {
+            md += `  - *${cls.description}*\n`;
+          }
+
+          // Show SQLAlchemy columns/properties
+          if (cls.properties && cls.properties.length > 0) {
+            const props = cls.properties.map(p => '`' + p + '`').join(', ');
+            md += `  - **Columns**: ${props}\n`;
+          }
+
+          if (cls.methods.length > 0) {
+            cls.methods.forEach(method => {
+              const params = method.params.join(', ');
+              const returnType = method.returnType ? `: ${method.returnType}` : '';
+              const asyncTag = method.isAsync ? '⚡ ' : '';
+              const methodSig = '`' + method.name + '(' + params + ')' + returnType + '`';
+              md += `    - ${asyncTag}${methodSig}`;
+              if (method.description) {
+                md += ` - ${method.description}`;
+              }
+              md += `\n`;
+            });
+          }
+        }
+        md += `\n`;
+      }
+
+      // Functions with documentation
+      if (file.functions.length > 0) {
+        md += `**Functions**:\n\n`;
+        for (const func of file.functions) {
+          const params = func.params.join(', ');
+          const returnType = func.returnType ? `: ${func.returnType}` : '';
+          const asyncTag = func.isAsync ? '⚡ ' : '';
+          const exportTag = func.isExported ? '🔓' : '🔒';
+          const funcSig = '`' + func.name + '(' + params + ')' + returnType + '`';
+          md += `- ${exportTag} ${asyncTag}${funcSig} (Line ${func.line})\n`;
+
+          if (func.description) {
+            md += `  - *${func.description}*\n`;
+          }
+        }
+        md += `\n`;
+      }
+
+      // Interfaces
+      if (file.interfaces.length > 0) {
+        md += `**Types/Interfaces**:\n\n`;
+        for (const iface of file.interfaces) {
+          const exportTag = iface.isExported ? '🔓' : '🔒';
+          const ifaceName = '`' + iface.name + '`';
+          md += `- ${exportTag} ${ifaceName} (Line ${iface.line})\n`;
+
+          if (iface.description) {
+            md += `  - *${iface.description}*\n`;
+          }
+
+          if (iface.properties.length > 0) {
+            md += `  - Props: ${iface.properties.join(', ')}\n`;
+          }
+        }
+        md += `\n`;
+      }
+
+      // Dependencies
+      if (file.imports.length > 0) {
+        md += `<details>\n<summary>📦 Dependencies</summary>\n\n`;
+        file.imports.forEach(imp => {
+          const source = '`' + imp.source + '`';
+          md += `- ${source}: ${imp.imports.join(', ')}\n`;
+        });
+        md += `\n</details>\n\n`;
+      }
+
+      md += `---\n\n`;
+    }
+  }
+
+  md += `\n## 💡 How to Use This File\n\n`;
+  md += `This file provides a complete overview of your codebase for AI assistants. It includes:\n\n`;
+  md += `- **API Endpoints**: All routes with authentication requirements\n`;
+  md += `- **Database Schema**: Complete table structures with relationships\n`;
+  md += `- **Function Signatures**: All public functions with parameters\n`;
+  md += `- **Dependencies**: Third-party packages used in each file\n\n`;
+  md += `*This file is auto-generated. Do not edit manually.*\n`;
+
+  return md;
+}
+</file>
+
+<file path="src/indexer/parser.ts">
+import * as ts from 'typescript';
+import { FunctionInfo, ClassInfo, InterfaceInfo, ImportInfo, FileIndex } from '../types';
+import { getConfig } from '../utils/config';
+import * as path from 'path';
+
+export function parseFile(
+  filePath: string,
+  content: string,
+  workspaceRoot: string
+): FileIndex {
+  const ext = path.extname(filePath);
+  let language: 'typescript' | 'javascript' | 'python';
+
+  if (ext === '.ts' || ext === '.tsx') {
+    language = 'typescript';
+  } else if (ext === '.js' || ext === '.jsx') {
+    language = 'javascript';
+  } else if (ext === '.py') {
+    language = 'python';
+    return parsePythonFile(filePath, content, workspaceRoot);
+  } else {
+    throw new Error(`Unsupported file type: ${ext}`);
+  }
+
+  return parseTypeScriptFile(filePath, content, workspaceRoot, language);
+}
+
+function parseTypeScriptFile(
+  filePath: string,
+  content: string,
+  workspaceRoot: string,
+  language: 'typescript' | 'javascript'
+): FileIndex {
+  const config = getConfig();
+  const sourceFile = ts.createSourceFile(
+    filePath,
+    content,
+    ts.ScriptTarget.Latest,
+    true
+  );
+
+  const fileIndex: FileIndex = {
+    path: filePath,
+    relativePath: path.relative(workspaceRoot, filePath),
+    functions: [],
+    classes: [],
+    interfaces: [],
+    imports: [],
+    language
+  };
+
+  function visit(node: ts.Node) {
+    if (ts.isFunctionDeclaration(node)) {
+      const funcInfo = extractFunctionInfo(node, sourceFile);
+      if (funcInfo) {
+        fileIndex.functions.push(funcInfo);
+      }
+    }
+
+    if (ts.isVariableStatement(node)) {
+      node.declarationList.declarations.forEach(decl => {
+        if (decl.initializer && ts.isArrowFunction(decl.initializer)) {
+          const funcInfo = extractArrowFunctionInfo(decl, sourceFile);
+          if (funcInfo) {
+            fileIndex.functions.push(funcInfo);
+          }
+        }
+      });
+    }
+
+    if (config.includeClasses && ts.isClassDeclaration(node)) {
+      const classInfo = extractClassInfo(node, sourceFile);
+      if (classInfo) {
+        fileIndex.classes.push(classInfo);
+      }
+    }
+
+    if (config.includeInterfaces && ts.isInterfaceDeclaration(node)) {
+      const interfaceInfo = extractInterfaceInfo(node, sourceFile);
+      if (interfaceInfo) {
+        fileIndex.interfaces.push(interfaceInfo);
+      }
+    }
+
+    if (config.includeInterfaces && ts.isTypeAliasDeclaration(node)) {
+      const typeInfo = extractTypeAliasInfo(node, sourceFile);
+      if (typeInfo) {
+        fileIndex.interfaces.push(typeInfo);
+      }
+    }
+
+    if (config.includeImports && ts.isImportDeclaration(node)) {
+      const importInfo = extractImportInfo(node, sourceFile);
+      if (importInfo) {
+        fileIndex.imports.push(importInfo);
+      }
+    }
+
+    ts.forEachChild(node, visit);
+  }
+
+  visit(sourceFile);
+  return fileIndex;
+}
+
+function extractJSDoc(node: any, sourceFile: ts.SourceFile): string | undefined {
+  try {
+    const fullText = sourceFile.getFullText();
+    const nodeStart = node.getFullStart();
+    const nodeActualStart = node.getStart(sourceFile);
+    const trivia = fullText.substring(nodeStart, nodeActualStart);
+
+    const jsDocRegex = /\/\*\*([\s\S]*?)\*\//;
+    const match = trivia.match(jsDocRegex);
+
+    if (match) {
+      return match[1]
+        .split('\n')
+        .map(line => line.replace(/^\s*\*\s?/, '').trim())
+        .filter(line => line && !line.startsWith('@'))
+        .join(' ')
+        .trim();
+    }
+  } catch (error) {
+    // Silently fail if JSDoc extraction fails
+  }
+
+  return undefined;
+}
+
+function extractFunctionInfo(node: ts.FunctionDeclaration, sourceFile: ts.SourceFile): FunctionInfo | null {
+  const name = node.name ? node.name.text : 'anonymous';
+  const params: string[] = node.parameters.map(p => p.getText(sourceFile));
+  const returnType = node.type ? node.type.getText(sourceFile) : undefined;
+  const line = sourceFile.getLineAndCharacterOfPosition(node.getStart()).line + 1;
+  const isAsync = node.modifiers?.some(m => m.kind === ts.SyntaxKind.AsyncKeyword) || false;
+  const isExported = node.modifiers?.some(m => m.kind === ts.SyntaxKind.ExportKeyword) || false;
+  const description = extractJSDoc(node, sourceFile);
+
+  return { name, params, returnType, line, isAsync, isExported, description };
+}
+
+function extractArrowFunctionInfo(node: ts.VariableDeclaration, sourceFile: ts.SourceFile): FunctionInfo | null {
+  const name = node.name.getText(sourceFile);
+  const arrowFunc = node.initializer as ts.ArrowFunction;
+  const params: string[] = arrowFunc.parameters.map(p => p.getText(sourceFile));
+  const returnType = arrowFunc.type ? arrowFunc.type.getText(sourceFile) : undefined;
+  const line = sourceFile.getLineAndCharacterOfPosition(node.getStart()).line + 1;
+  const isAsync = arrowFunc.modifiers?.some(m => m.kind === ts.SyntaxKind.AsyncKeyword) || false;
+
+  const parent = node.parent?.parent;
+  const isExported = parent && ts.isVariableStatement(parent) 
+    ? parent.modifiers?.some(m => m.kind === ts.SyntaxKind.ExportKeyword) || false
+    : false;
+
+  const description = extractJSDoc(parent || node, sourceFile);
+
+  return { name, params, returnType, line, isAsync, isExported, description };
+}
+
+function extractClassInfo(node: ts.ClassDeclaration, sourceFile: ts.SourceFile): ClassInfo | null {
+  const name = node.name ? node.name.text : 'anonymous';
+  const line = sourceFile.getLineAndCharacterOfPosition(node.getStart()).line + 1;
+  const isExported = node.modifiers?.some(m => m.kind === ts.SyntaxKind.ExportKeyword) || false;
+  const methods: FunctionInfo[] = [];
+  const description = extractJSDoc(node, sourceFile);
+  const properties: string[] = [];
+
+  node.members.forEach(member => {
+    if (ts.isPropertyDeclaration(member) && member.name) {
+      const propName = member.name.getText(sourceFile);
+      const propType = member.type ? member.type.getText(sourceFile) : 'any';
+      properties.push(`${propName}: ${propType}`);
+    }
+
+    if (ts.isMethodDeclaration(member) && member.name) {
+      const methodName = member.name.getText(sourceFile);
+      const params: string[] = member.parameters.map(p => p.getText(sourceFile));
+      const returnType = member.type ? member.type.getText(sourceFile) : undefined;
+      const methodLine = sourceFile.getLineAndCharacterOfPosition(member.getStart()).line + 1;
+      const isAsync = member.modifiers?.some(m => m.kind === ts.SyntaxKind.AsyncKeyword) || false;
+      const methodDesc = extractJSDoc(member, sourceFile);
+
+      methods.push({
+        name: methodName,
+        params,
+        returnType,
+        line: methodLine,
+        isAsync,
+        isExported: false,
+        description: methodDesc
+      });
+    }
+  });
+
+  return { name, line, methods, isExported, description, properties };
+}
+
+function extractInterfaceInfo(node: ts.InterfaceDeclaration, sourceFile: ts.SourceFile): InterfaceInfo | null {
+  const name = node.name.text;
+  const line = sourceFile.getLineAndCharacterOfPosition(node.getStart()).line + 1;
+  const isExported = node.modifiers?.some(m => m.kind === ts.SyntaxKind.ExportKeyword) || false;
+  const properties: string[] = node.members
+    .filter(m => ts.isPropertySignature(m))
+    .map(m => m.name?.getText(sourceFile) || '')
+    .filter(n => n !== '');
+
+  const description = extractJSDoc(node, sourceFile);
+
+  return { name, line, properties, isExported, description };
+}
+
+function extractTypeAliasInfo(node: ts.TypeAliasDeclaration, sourceFile: ts.SourceFile): InterfaceInfo | null {
+  const name = node.name.text;
+  const line = sourceFile.getLineAndCharacterOfPosition(node.getStart()).line + 1;
+  const isExported = node.modifiers?.some(m => m.kind === ts.SyntaxKind.ExportKeyword) || false;
+
+  const properties: string[] = [];
+  if (ts.isTypeLiteralNode(node.type)) {
+    node.type.members.forEach(m => {
+      if (ts.isPropertySignature(m) && m.name) {
+        properties.push(m.name.getText(sourceFile));
+      }
+    });
+  }
+
+  const description = extractJSDoc(node, sourceFile);
+
+  return { name, line, properties, isExported, description };
+}
+
+function extractImportInfo(node: ts.ImportDeclaration, sourceFile: ts.SourceFile): ImportInfo | null {
+  const moduleSpecifier = node.moduleSpecifier;
+  if (!ts.isStringLiteral(moduleSpecifier)) {
+    return null;
+  }
+
+  const source = moduleSpecifier.text;
+  const line = sourceFile.getLineAndCharacterOfPosition(node.getStart()).line + 1;
+  const imports: string[] = [];
+
+  if (node.importClause) {
+    if (node.importClause.name) {
+      imports.push(node.importClause.name.text);
+    }
+
+    if (node.importClause.namedBindings) {
+      if (ts.isNamedImports(node.importClause.namedBindings)) {
+        node.importClause.namedBindings.elements.forEach(el => {
+          imports.push(el.name.text);
+        });
+      } else if (ts.isNamespaceImport(node.importClause.namedBindings)) {
+        imports.push(node.importClause.namedBindings.name.text);
+      }
+    }
+  }
+
+  return { source, imports, line };
+}
+
+// Enhanced Python parser with docstrings and SQLAlchemy support
+function parsePythonFile(filePath: string, content: string, workspaceRoot: string): FileIndex {
+  const config = getConfig();
+  const fileIndex: FileIndex = {
+    path: filePath,
+    relativePath: path.relative(workspaceRoot, filePath),
+    functions: [],
+    classes: [],
+    interfaces: [],
+    imports: [],
+    language: 'python'
+  };
+
+  const lines = content.split('\n');
+  let currentClass: ClassInfo | null = null;
+  let currentIndent = 0;
+  let pendingDocstring: string | undefined;
+  let inDocstring = false;
+  let docstringLines: string[] = [];
+  const tripleQuote = '"""';
+  const tripleSingleQuote = "'''";
+
+  for (let i = 0; i < lines.length; i++) {
+    const line = lines[i];
+    const lineNum = i + 1;
+    const indent = line.match(/^(\s*)/)?.[1].length || 0;
+
+    // Handle multi-line docstrings
+    const hasTripleQuote = line.includes(tripleQuote) || line.includes(tripleSingleQuote);
+
+    if (hasTripleQuote) {
+      const quote = line.includes(tripleQuote) ? tripleQuote : tripleSingleQuote;
+      const quoteCount = (line.match(new RegExp(quote.replace(/"/g, '\\"'), 'g')) || []).length;
+
+      if (inDocstring) {
+        // End of docstring
+        const endContent = line.split(quote)[0];
+        if (endContent.trim()) {
+          docstringLines.push(endContent.trim());
+        }
+        pendingDocstring = docstringLines.join(' ').trim();
+        inDocstring = false;
+        docstringLines = [];
+      } else if (quoteCount >= 2) {
+        // Single line docstring
+        const content = line.split(quote)[1] || '';
+        pendingDocstring = content.trim();
+      } else {
+        // Start of multi-line docstring
+        inDocstring = true;
+        const startContent = line.split(quote)[1];
+        if (startContent && startContent.trim()) {
+          docstringLines = [startContent.trim()];
+        }
+      }
+      continue;
+    }
+
+    if (inDocstring) {
+      docstringLines.push(line.trim());
+      continue;
+    }
+
+    // Class definitions
+    const classMatch = line.match(/^class\s+(\w+)\s*\(([^)]*)\)/);
+    if (classMatch) {
+      const name = classMatch[1];
+
+      currentClass = {
+        name,
+        line: lineNum,
+        methods: [],
+        isExported: true,
+        description: pendingDocstring,
+        properties: []
+      };
+      currentIndent = indent;
+      pendingDocstring = undefined;
+
+      fileIndex.classes.push(currentClass);
+      continue;
+    }
+
+    // SQLAlchemy column definitions
+    if (currentClass && indent > currentIndent) {
+      const columnMatch = line.match(/^\s+(\w+)\s*=\s*(?:db\.)?Column\((.+)/);
+      if (columnMatch) {
+        const colName = columnMatch[1];
+        let colDef = columnMatch[2];
+
+        // Handle multi-line column definitions
+        let fullDef = colDef;
+        let j = i + 1;
+        let parenCount = (colDef.match(/\(/g) || []).length - (colDef.match(/\)/g) || []).length;
+
+        while (parenCount > 0 && j < lines.length) {
+          const nextLine = lines[j].trim();
+          fullDef += ' ' + nextLine;
+          parenCount += (nextLine.match(/\(/g) || []).length - (nextLine.match(/\)/g) || []).length;
+          i = j;
+          j++;
+        }
+
+        const typeMatch = fullDef.match(/^([^,()]+)/);
+        const colType = typeMatch ? typeMatch[1].trim() : 'Unknown';
+
+        if (!currentClass.properties) {
+          currentClass.properties = [];
+        }
+        currentClass.properties.push(`${colName}: ${colType}`);
+        continue;
+      }
+
+      // Regular Python class attributes
+      const attrMatch = line.match(/^\s+(\w+)\s*:\s*(.+?)\s*(?:=|$)/);
+      if (attrMatch && !line.includes('def ')) {
+        const attrName = attrMatch[1];
+        const attrType = attrMatch[2].split('=')[0].trim();
+
+        if (!currentClass.properties) {
+          currentClass.properties = [];
+        }
+        currentClass.properties.push(`${attrName}: ${attrType}`);
+        continue;
+      }
+    }
+
+    // Method definitions
+    const methodMatch = line.match(/^(\s*)(?:async\s+)?def\s+(\w+)\s*\(([^)]*)\)/);
+    if (methodMatch && currentClass && indent > currentIndent) {
+      const name = methodMatch[2];
+      const paramsStr = methodMatch[3];
+      const params = paramsStr.split(',')
+        .map(p => p.trim())
+        .filter(p => p !== 'self' && p !== 'cls' && p !== '');
+      const isAsync = line.includes('async def');
+
+      currentClass.methods.push({
+        name,
+        params,
+        line: lineNum,
+        isAsync,
+        isExported: false,
+        description: pendingDocstring
+      });
+      pendingDocstring = undefined;
+      continue;
+    }
+
+    // Top-level function definitions
+    const funcMatch = line.match(/^(?:async\s+)?def\s+(\w+)\s*\(([^)]*)\)/);
+    if (funcMatch && indent === 0) {
+      const name = funcMatch[1];
+      const paramsStr = funcMatch[2];
+      const params = paramsStr.split(',').map(p => p.trim()).filter(p => p !== '');
+      const isAsync = line.includes('async def');
+
+      fileIndex.functions.push({
+        name,
+        params,
+        line: lineNum,
+        isAsync,
+        isExported: true,
+        description: pendingDocstring
+      });
+      pendingDocstring = undefined;
+      currentClass = null;
+      continue;
+    }
+
+    // Reset current class if back at top level
+    if (indent === 0 && currentClass && line.trim() !== '') {
+      currentClass = null;
+    }
+
+    // Import statements
+    if (config.includeImports) {
+      const importMatch = line.match(/^(?:from\s+(\S+)\s+)?import\s+(.+)/);
+      if (importMatch) {
+        const source = importMatch[1] || importMatch[2].split(',')[0].trim();
+        const imports = importMatch[2]
+          .split(',')
+          .map(i => i.trim().split(' as ')[0].trim());
+
+        fileIndex.imports.push({
+          source,
+          imports,
+          line: lineNum
+        });
+      }
+    }
+  }
+
+  return fileIndex;
+}
+</file>
+
+<file path="src/test/extension.test.ts">
+import * as assert from 'assert';
+
+// You can import and use all API from the 'vscode' module
+// as well as import your extension to test it
+import * as vscode from 'vscode';
+// import * as myExtension from '../../extension';
+
+suite('Extension Test Suite', () => {
+	vscode.window.showInformationMessage('Start all tests.');
+
+	test('Sample test', () => {
+		assert.strictEqual(-1, [1, 2, 3].indexOf(5));
+		assert.strictEqual(-1, [1, 2, 3].indexOf(0));
+	});
+});
+</file>
+
+<file path="src/types/index.ts">
+export interface FunctionInfo {
+  name: string;
+  params: string[];
+  returnType?: string;
+  line: number;
+  isAsync?: boolean;
+  isExported?: boolean;
+  description?: string;  // NEW: JSDoc/docstring
+}
+
+export interface ClassInfo {
+  name: string;
+  line: number;
+  methods: FunctionInfo[];
+  isExported?: boolean;
+  description?: string;  // NEW: Class documentation
+  properties?: string[];  // NEW: For SQLAlchemy columns or TypeScript properties
+}
+
+export interface InterfaceInfo {
+  name: string;
+  line: number;
+  properties: string[];
+  isExported?: boolean;
+  description?: string;  // NEW: Interface documentation
+}
+
+export interface ImportInfo {
+  source: string;
+  imports: string[];
+  line: number;
+}
+
+export interface FileIndex {
+  path: string;
+  relativePath: string;
+  functions: FunctionInfo[];
+  classes: ClassInfo[];
+  interfaces: InterfaceInfo[];
+  imports: ImportInfo[];
+  language: 'typescript' | 'javascript' | 'python';
+}
+
+export interface ProjectIndex {
+  projectName: string;
+  generated: string;
+  fileCount: number;
+  functionCount: number;
+  classCount: number;
+  files: FileIndex[];
+  techStack?: string[];  // NEW: Detected technologies
+  apiEndpoints?: ApiEndpoint[];  // NEW: Extracted API routes
+  dbSchema?: DbTable[];  // NEW: Database schema
+}
+
+export interface ApiEndpoint {
+  method: string;
+  path: string;
+  handler: string;
+  file: string;
+  line: number;
+  auth?: boolean;
+}
+
+export interface DbTable {
+  name: string;
+  file: string;
+  line: number;
+  columns: DbColumn[];
+}
+
+export interface DbColumn {
+  name: string;
+  type: string;
+  nullable?: boolean;
+  primary?: boolean;
+  foreign?: string;
+}
+
+export interface ExtensionConfig {
+  outputPath: string;
+  outputFormat: 'markdown' | 'json' | 'both';
+  includePatterns: string[];
+  excludePatterns: string[];
+  autoRefresh: boolean;
+  debounceDelay: number;
+  includeClasses: boolean;
+  includeInterfaces: boolean;
+  includeImports: boolean;
+  maxFileSize: number;
+}
+
+export interface GenerationResult {
+  fileCount: number;
+  functionCount: number;
+  classCount: number;
+}
+</file>
+
+<file path="src/utils/config.ts">
+import * as vscode from 'vscode';
+import { ExtensionConfig } from '../types';
+
+export function getConfig(): ExtensionConfig {
+    const config = vscode.workspace.getConfiguration('aiContextIndex');
+
+    return {
+        outputPath: config.get('outputPath', '.ai-context'),
+        outputFormat: config.get('outputFormat', 'markdown'),
+        includePatterns: config.get('includePatterns', [
+            'src/**/*.ts',
+            'src/**/*.tsx',
+            'src/**/*.js',
+            'src/**/*.jsx',
+            'src/**/*.py'
+        ]),
+        excludePatterns: config.get('excludePatterns', [
+            '**/node_modules/**',
+            '**/.git/**',
+            '**/dist/**',
+            '**/build/**',
+            '**/*.test.*',
+            '**/*.spec.*'
+        ]),
+        autoRefresh: config.get('autoRefresh', true),
+        debounceDelay: config.get('debounceDelay', 3000),
+        includeClasses: config.get('includeClasses', true),
+        includeInterfaces: config.get('includeInterfaces', true),
+        includeImports: config.get('includeImports', false),
+        maxFileSize: config.get('maxFileSize', 1048576)
+    };
+}
+</file>
+
+<file path="src/web-tree-sitter-local.d.ts">
+declare module 'web-tree-sitter' {
+  namespace Parser {
+    export interface SyntaxNode {
+      type: string;
+      startIndex: number;
+      endIndex: number;
+      startPosition: { row: number; column: number };
+      endPosition: { row: number; column: number };
+      children: SyntaxNode[];
+      parent: SyntaxNode | null;
+      childForFieldName(fieldName: string): SyntaxNode | null;
+    }
+
+    export interface Tree {
+      rootNode: SyntaxNode;
+      delete(): void;
+    }
+
+    export interface Language {}
+  }
+
+  interface Parser {
+    parse(input: string | Parser.Input, oldTree?: Parser.Tree): Parser.Tree;
+    setLanguage(language: Parser.Language): void;
+    getLanguage(): Parser.Language;
+    delete(): void;
+  }
+
+  interface ParserConstructor {
+    new(): Parser;
+    init(): Promise<void>;
+    Language: {
+      load(path: string): Promise<Parser.Language>;
+    };
+  }
+
+  namespace Parser {
+    export interface Input {
+      (index: number, position?: Point): string | null;
+    }
+
+    export interface Point {
+      row: number;
+      column: number;
+    }
+  }
+
+  const Parser: ParserConstructor;
+  export = Parser;
+}
+</file>
+
+<file path="tsconfig.json">
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "target": "ES2020",
+    "outDir": "out",
+    "lib": ["ES2020"],
+    "sourceMap": true,
+    "rootDir": "src",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "resolveJsonModule": true
+  },
+  "exclude": ["node_modules", ".vscode-test"]
+}
+</file>
+
+<file path="vsc-extension-quickstart.md">
+# Welcome to your VS Code Extension
+
+## What's in the folder
+
+* This folder contains all of the files necessary for your extension.
+* `package.json` - this is the manifest file in which you declare your extension and command.
+  * The sample plugin registers a command and defines its title and command name. With this information VS Code can show the command in the command palette. It doesn’t yet need to load the plugin.
+* `src/extension.ts` - this is the main file where you will provide the implementation of your command.
+  * The file exports one function, `activate`, which is called the very first time your extension is activated (in this case by executing the command). Inside the `activate` function we call `registerCommand`.
+  * We pass the function containing the implementation of the command as the second parameter to `registerCommand`.
+
+## Setup
+
+* install the recommended extensions (amodio.tsl-problem-matcher, ms-vscode.extension-test-runner, and dbaeumer.vscode-eslint)
+
+
+## Get up and running straight away
+
+* Press `F5` to open a new window with your extension loaded.
+* Run your command from the command palette by pressing (`Ctrl+Shift+P` or `Cmd+Shift+P` on Mac) and typing `Hello World`.
+* Set breakpoints in your code inside `src/extension.ts` to debug your extension.
+* Find output from your extension in the debug console.
+
+## Make changes
+
+* You can relaunch the extension from the debug toolbar after changing code in `src/extension.ts`.
+* You can also reload (`Ctrl+R` or `Cmd+R` on Mac) the VS Code window with your extension to load your changes.
+
+
+## Explore the API
+
+* You can open the full set of our API when you open the file `node_modules/@types/vscode/index.d.ts`.
+
+## Run tests
+
+* Install the [Extension Test Runner](https://marketplace.visualstudio.com/items?itemName=ms-vscode.extension-test-runner)
+* Run the "watch" task via the **Tasks: Run Task** command. Make sure this is running, or tests might not be discovered.
+* Open the Testing view from the activity bar and click the Run Test" button, or use the hotkey `Ctrl/Cmd + ; A`
+* See the output of the test result in the Test Results view.
+* Make changes to `src/test/extension.test.ts` or create new test files inside the `test` folder.
+  * The provided test runner will only consider files matching the name pattern `**.test.ts`.
+  * You can create folders inside the `test` folder to structure your tests any way you want.
+
+## Go further
+
+* Reduce the extension size and improve the startup time by [bundling your extension](https://code.visualstudio.com/api/working-with-extensions/bundling-extension).
+* [Publish your extension](https://code.visualstudio.com/api/working-with-extensions/publishing-extension) on the VS Code extension marketplace.
+* Automate builds by setting up [Continuous Integration](https://code.visualstudio.com/api/working-with-extensions/continuous-integration).
+</file>
+
+</files>

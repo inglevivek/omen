@@ -1,0 +1,170 @@
+{
+  "name": "thoth-files-and-functions-indexer",
+  "displayName": "Thoth - Files and Functions Indexer",
+  "description": "Generates AI-readable project index with functions, files, and structure for better AI-assisted coding.",
+  "version": "0.1.0",
+  "publisher": "Chronos",
+  "author": {
+    "name": "Vivek Ingle",
+    "url": "https://github.com/inglevivek/thoth"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/inglevivek/thoth"
+  },
+  "bugs": {
+    "url": "https://github.com/inglevivek/thoth/issues"
+  },
+  "homepage": "https://github.com/inglevivek/thoth#readme",
+  "license": "MIT",
+  "icon": "extension/icon.png",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Programming Languages",
+    "Other"
+  ],
+  "keywords": [
+    "ai",
+    "context",
+    "index",
+    "llm",
+    "code generation",
+    "cursor",
+    "copilot",
+    "assistant",
+    "documentation"
+  ],
+  "activationEvents": [],
+  "main": "./dist/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "ai-context-index.generateIndex",
+        "title": "Generate AI Context Index",
+        "category": "Thoth Context Generate"
+      },
+      {
+        "command": "ai-context-index.refreshIndex",
+        "title": "Refresh AI Context Index",
+        "category": "Thoth Context Refresh"
+      },
+      {
+        "command": "ai-context-index.openIndex",
+        "title": "Open AI Context Index",
+        "category": "Thoth Context Open"
+      }
+    ],
+    "configuration": {
+      "type": "object",
+      "title": "Thoth Context",
+      "properties": {
+        "thoth.outputPath": {
+          "type": "string",
+          "default": ".ai-context",
+          "description": "Directory where index files will be generated"
+        },
+        "thoth.outputFormat": {
+          "type": "string",
+          "enum": [
+            "markdown",
+            "json",
+            "both"
+          ],
+          "default": "markdown",
+          "description": "Output format for the index file"
+        },
+        "thoth.includePatterns": {
+          "type": "array",
+          "default": [
+            "src/**/*.ts",
+            "src/**/*.tsx",
+            "src/**/*.js",
+            "src/**/*.jsx",
+            "src/**/*.py"
+          ],
+          "description": "Glob patterns for files to include in indexing"
+        },
+        "thoth.excludePatterns": {
+          "type": "array",
+          "default": [
+            "**/node_modules/**",
+            "**/.git/**",
+            "**/dist/**",
+            "**/build/**",
+            "**/*.test.*",
+            "**/*.spec.*"
+          ],
+          "description": "Glob patterns for files to exclude from indexing"
+        },
+        "thoth.autoRefresh": {
+          "type": "boolean",
+          "default": true,
+          "description": "Automatically refresh index on file save"
+        },
+        "thoth.debounceDelay": {
+          "type": "number",
+          "default": 3000,
+          "description": "Delay in milliseconds before auto-refresh triggers (minimum 1000ms)"
+        },
+        "thoth.includeClasses": {
+          "type": "boolean",
+          "default": true,
+          "description": "Include class definitions in the index"
+        },
+        "thoth.includeInterfaces": {
+          "type": "boolean",
+          "default": true,
+          "description": "Include interface/type definitions in the index"
+        },
+        "thoth.includeImports": {
+          "type": "boolean",
+          "default": false,
+          "description": "Include import/export statements in the index"
+        },
+        "thoth.maxFileSize": {
+          "type": "number",
+          "default": 1048576,
+          "description": "Maximum file size in bytes to process (default 1MB)"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run package",
+    "compile": "npm run check-types && npm run lint && node esbuild.js",
+    "watch": "npm-run-all -p watch:*",
+    "watch:esbuild": "node esbuild.js --watch",
+    "watch:tsc": "tsc --noEmit --watch --project tsconfig.json",
+    "package": "npm run check-types && npm run lint && node esbuild.js --production",
+    "compile-tests": "tsc -p . --outDir out",
+    "watch-tests": "tsc -p . -w --outDir out",
+    "pretest": "npm run compile-tests && npm run compile && npm run lint",
+    "check-types": "tsc --noEmit",
+    "lint": "eslint src",
+    "test": "vscode-test",
+    "rebuild": "electron-rebuild -f -w tree-sitter -w tree-sitter-javascript -w tree-sitter-python -w tree-sitter-typescript",
+    "postinstall": "npm run rebuild"
+  },
+  "devDependencies": {
+    "@electron/rebuild": "^4.0.2",
+    "@types/glob": "^8.1.0",
+    "@types/mocha": "^10.0.10",
+    "@types/node": "^22.19.3",
+    "@types/vscode": "^1.85.0",
+    "@typescript-eslint/typescript-estree": "^6.15.0",
+    "@vscode/test-cli": "^0.0.12",
+    "@vscode/test-electron": "^2.5.2",
+    "esbuild": "^0.27.1",
+    "eslint": "^9.39.1",
+    "npm-run-all": "^4.1.5",
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.48.1"
+  },
+  "dependencies": {
+    "@typescript-eslint/typescript-estree": "^6.15.0",
+    "glob": "^8.1.0",
+    "ignore": "^5.3.0"
+  }
+}
