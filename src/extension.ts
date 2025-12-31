@@ -9,7 +9,7 @@ let fileWatcher: vscode.FileSystemWatcher | undefined;
 let debounceTimer: NodeJS.Timeout | undefined;
 
 export function activate(context: vscode.ExtensionContext) {
-    console.log('AI Context Index extension is now active');
+    console.log('Code Context Index extension is now active');
 
     // Create status bar item
     statusBarItem = vscode.window.createStatusBarItem(
@@ -24,21 +24,21 @@ export function activate(context: vscode.ExtensionContext) {
 
     // Register commands
     const generateCommand = vscode.commands.registerCommand(
-        'ai-context-index.generateIndex',
+        'omen.generateIndex',
         async () => {
             await handleGenerateIndex();
         }
     );
 
     const refreshCommand = vscode.commands.registerCommand(
-        'ai-context-index.refreshIndex',
+        'omen.refreshIndex',
         async () => {
             await handleGenerateIndex(true);
         }
     );
 
     const openCommand = vscode.commands.registerCommand(
-        'ai-context-index.openIndex',
+        'omen.openIndex',
         async () => {
             await openIndexFile();
         }
@@ -72,7 +72,7 @@ async function handleGenerateIndex(isRefresh: boolean = false) {
         await vscode.window.withProgress(
             {
                 location: vscode.ProgressLocation.Notification,
-                title: `${action} AI Context Index`,
+                title: `${action} Omen`,
                 cancellable: false
             },
             async (progress) => {
@@ -83,7 +83,7 @@ async function handleGenerateIndex(isRefresh: boolean = false) {
                 progress.report({ increment: 100, message: 'Complete!' });
                 
                 vscode.window.showInformationMessage(
-                    `AI Context Index ${isRefresh ? 'refreshed' : 'generated'}: ${result.fileCount} files, ${result.functionCount} functions`
+                    `Omen ${isRefresh ? 'refreshed' : 'generated'}: ${result.fileCount} files, ${result.functionCount} functions`
                 );
                 
                 statusBarItem.text = "$(file-code) AI Context";

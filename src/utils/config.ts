@@ -5,7 +5,7 @@ export function getConfig(): ExtensionConfig {
     const config = vscode.workspace.getConfiguration('aiContextIndex');
 
     return {
-        outputPath: config.get('outputPath', '.ai-context'),
+        outputPath: config.get('outputPath', '.omen-code-index'),
         outputFormat: config.get('outputFormat', 'markdown'),
         includePatterns: config.get('includePatterns', [
             'src/**/*.ts',

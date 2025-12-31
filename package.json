@@ -1,6 +1,6 @@
 {
-  "name": "thoth-files-and-functions-indexer",
-  "displayName": "Thoth - Files and Functions Indexer",
+  "name": "oemn-files-and-functions-indexer",
+  "displayName": "Omen - Code Indexer",
   "description": "Generates AI-readable project index with functions, files, and structure for better AI-assisted coding.",
   "version": "0.1.0",
   "publisher": "Chronos",
@@ -10,12 +10,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/inglevivek/thoth"
+    "url": "https://github.com/inglevivek/omen"
   },
   "bugs": {
-    "url": "https://github.com/inglevivek/thoth/issues"
+    "url": "https://github.com/inglevivek/omen/issues"
   },
-  "homepage": "https://github.com/inglevivek/thoth#readme",
+  "homepage": "https://github.com/inglevivek/omen#readme",
   "license": "MIT",
   "icon": "extension/icon.png",
   "engines": {
@@ -41,19 +41,19 @@
   "contributes": {
     "commands": [
       {
-        "command": "ai-context-index.generateIndex",
-        "title": "Generate AI Context Index",
-        "category": "Thoth Context Generate"
+        "command": "omen.generateIndex",
+        "title": "Generate Context Index",
+        "category": "Omen Context Generate"
       },
       {
-        "command": "ai-context-index.refreshIndex",
-        "title": "Refresh AI Context Index",
-        "category": "Thoth Context Refresh"
+        "command": "omen.refreshIndex",
+        "title": "Refresh Context Index",
+        "category": "Omen Context Refresh"
       },
       {
-        "command": "ai-context-index.openIndex",
-        "title": "Open AI Context Index",
-        "category": "Thoth Context Open"
+        "command": "omen.openIndex",
+        "title": "Open Context Index",
+        "category": "Omen Context Open"
       }
     ],
     "configuration": {
@@ -62,7 +62,7 @@
       "properties": {
         "thoth.outputPath": {
           "type": "string",
-          "default": ".ai-context",
+          "default": ".thoth-context",
           "description": "Directory where index files will be generated"
         },
         "thoth.outputFormat": {
