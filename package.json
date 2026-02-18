@@ -148,7 +148,7 @@
     "postinstall": "npm run rebuild"
   },
   "devDependencies": {
-    "@electron/rebuild": "^4.0.2",
+    "@electron/rebuild": "^4.0.3",
     "@types/glob": "^8.1.0",
     "@types/mocha": "^10.0.10",
     "@types/node": "^22.19.3",
