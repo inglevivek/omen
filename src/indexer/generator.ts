@@ -68,12 +68,24 @@ export async function generateIndex(workspaceRoot: string): Promise<GenerationRe
                 detectedTechs.add('GraphQL');
             }
 
-            // Other
+            // Auth
             if (source.includes('jwt') || source.includes('jsonwebtoken')) {
                 detectedTechs.add('JWT Auth');
             }
             if (source.includes('bcrypt')) { detectedTechs.add('Bcrypt'); }
             if (source.includes('redis')) { detectedTechs.add('Redis'); }
+
+            // Rust crates (detected via `use` statements in .rs files)
+            if (source.includes('tokio')) { detectedTechs.add('Tokio (async)'); }
+            if (source.includes('actix')) { detectedTechs.add('Actix-web'); }
+            if (source.includes('axum')) { detectedTechs.add('Axum'); }
+            if (source.includes('serde')) { detectedTechs.add('Serde'); }
+            if (source.includes('diesel')) { detectedTechs.add('Diesel ORM'); }
+            if (source.includes('sqlx')) { detectedTechs.add('SQLx'); }
+            if (source.includes('sea_orm') || source.includes('sea-orm')) { detectedTechs.add('SeaORM'); }
+            if (source.includes('rocket')) { detectedTechs.add('Rocket'); }
+            if (source.includes('warp')) { detectedTechs.add('Warp'); }
+            if (source.includes('tonic')) { detectedTechs.add('Tonic (gRPC)'); }
             });
 
       // Extract API endpoints
@@ -84,6 +96,10 @@ export async function generateIndex(workspaceRoot: string): Promise<GenerationRe
         extractExpressRoutes(fileIndex, content, apiEndpoints);
         extractNestJSRoutes(fileIndex, content, apiEndpoints);
         extractNextJSRoutes(file, fileIndex, content, apiEndpoints);
+      } else if (fileIndex.language === 'rust') {
+        extractActixRoutes(fileIndex, content, apiEndpoints);
+        extractAxumRoutes(fileIndex, content, apiEndpoints);
+        extractRocketRoutes(fileIndex, content, apiEndpoints);
       }
 
       // Extract database schemas
@@ -337,6 +353,75 @@ function extractNextJSRoutes(filePath: string, fileIndex: any, content: string, 
   }
 }
 
+// Actix-web route extraction (attribute macros: #[get("/path")], #[post("/path")], etc.)
+function extractActixRoutes(fileIndex: any, content: string, endpoints: ApiEndpoint[]): void {
+  const patterns = [
+    { re: /#\[get\("([^"]+)"\)\][\s\S]*?(?:async\s+)?fn\s+(\w+)/g, method: 'GET' },
+    { re: /#\[post\("([^"]+)"\)\][\s\S]*?(?:async\s+)?fn\s+(\w+)/g, method: 'POST' },
+    { re: /#\[put\("([^"]+)"\)\][\s\S]*?(?:async\s+)?fn\s+(\w+)/g, method: 'PUT' },
+    { re: /#\[delete\("([^"]+)"\)\][\s\S]*?(?:async\s+)?fn\s+(\w+)/g, method: 'DELETE' },
+    { re: /#\[patch\("([^"]+)"\)\][\s\S]*?(?:async\s+)?fn\s+(\w+)/g, method: 'PATCH' },
+  ];
+  for (const { re, method } of patterns) {
+    for (const m of content.matchAll(re)) {
+      const lineNum = content.substring(0, m.index!).split('\n').length;
+      const hasAuth = content.includes('HttpRequest') && 
+                      (content.includes('Authorization') || content.includes('Bearer'));
+      endpoints.push({
+        method,
+        path: m[1],
+        handler: m[2],
+        file: fileIndex.relativePath,
+        line: lineNum,
+        auth: hasAuth
+      });
+    }
+  }
+}
+
+// Axum route extraction (.route("/path", get(handler)))
+function extractAxumRoutes(fileIndex: any, content: string, endpoints: ApiEndpoint[]): void {
+  const re = /\.route\(\s*"([^"]+)"\s*,\s*(get|post|put|delete|patch)\((\w+)\)/g;
+  for (const m of content.matchAll(re)) {
+    const routePath = m[1];
+    const method = m[2].toUpperCase();
+    const handler = m[3];
+    const lineNum = content.substring(0, m.index!).split('\n').length;
+    endpoints.push({
+      method,
+      path: routePath,
+      handler,
+      file: fileIndex.relativePath,
+      line: lineNum,
+      auth: content.includes('middleware::from_fn') || content.includes('Authorization')
+    });
+  }
+}
+
+// Rocket route extraction (#[get("/path")], #[post("/path")], etc.)
+function extractRocketRoutes(fileIndex: any, content: string, endpoints: ApiEndpoint[]): void {
+  const patterns = [
+    { re: /#\[get\("([^"]+)"(?:[^)]*)\)\][\s\S]*?fn\s+(\w+)/g, method: 'GET' },
+    { re: /#\[post\("([^"]+)"(?:[^)]*)\)\][\s\S]*?fn\s+(\w+)/g, method: 'POST' },
+    { re: /#\[put\("([^"]+)"(?:[^)]*)\)\][\s\S]*?fn\s+(\w+)/g, method: 'PUT' },
+    { re: /#\[delete\("([^"]+)"(?:[^)]*)\)\][\s\S]*?fn\s+(\w+)/g, method: 'DELETE' },
+    { re: /#\[patch\("([^"]+)"(?:[^)]*)\)\][\s\S]*?fn\s+(\w+)/g, method: 'PATCH' },
+  ];
+  for (const { re, method } of patterns) {
+    for (const m of content.matchAll(re)) {
+      const lineNum = content.substring(0, m.index!).split('\n').length;
+      endpoints.push({
+        method,
+        path: m[1],
+        handler: m[2],
+        file: fileIndex.relativePath,
+        line: lineNum,
+        auth: content.includes('request::Outcome') || content.includes('FromRequest')
+      });
+    }
+  }
+}
+
 // SQLAlchemy schema extraction
 function extractSQLAlchemySchema(fileIndex: any, content: string, tables: DbTable[]): void {
   if (!content.includes('db.Model') && !content.includes('Base')) { return; }
@@ -468,10 +553,15 @@ function generateMarkdown(index: ProjectIndex): string {
       ['React', 'Next.js', 'Vue', 'Angular', 'Svelte', 'Solid.js'].includes(t)
     );
     const database = index.techStack.filter(t => 
-      ['SQLAlchemy', 'Mongoose', 'Prisma', 'TypeORM', 'Sequelize', 'Drizzle ORM'].includes(t)
+      ['SQLAlchemy', 'Mongoose', 'Prisma', 'TypeORM', 'Sequelize', 'Drizzle ORM',
+       'Diesel ORM', 'SQLx', 'SeaORM'].includes(t)
+    );
+    const rustFrameworks = index.techStack.filter(t =>
+      ['Actix-web', 'Axum', 'Rocket', 'Warp', 'Tokio (async)', 'Serde',
+       'Tonic (gRPC)'].includes(t)
     );
     const other = index.techStack.filter(t => 
-      !backend.includes(t) && !frontend.includes(t) && !database.includes(t)
+      !backend.includes(t) && !frontend.includes(t) && !database.includes(t) && !rustFrameworks.includes(t)
     );
 
     if (backend.length > 0) {
@@ -479,6 +569,9 @@ function generateMarkdown(index: ProjectIndex): string {
     }
     if (frontend.length > 0) {
       md += `**Frontend**: ${frontend.join(', ')}\n`;
+    }
+    if (rustFrameworks.length > 0) {
+      md += `**Rust**: ${rustFrameworks.join(', ')}\n`;
     }
     if (database.length > 0) {
       md += `**Database/ORM**: ${database.join(', ')}\n`;
@@ -559,8 +652,11 @@ function generateMarkdown(index: ProjectIndex): string {
     md += `### ${displayDir}\n\n`;
 
     for (const file of filesByDir[dir]) {
+      // FIX: show both the short filename in the heading AND the full relative path
       const fileName = '`' + path.basename(file.path) + '`';
+      const filePath = '`' + file.relativePath + '`';
       md += `#### ${fileName} [${file.language}]\n\n`;
+      md += `**Path**: ${filePath}\n\n`;
 
       // Classes with documentation
       if (file.classes.length > 0) {
@@ -614,9 +710,9 @@ function generateMarkdown(index: ProjectIndex): string {
         md += `\n`;
       }
 
-      // Interfaces
+      // Interfaces / Traits
       if (file.interfaces.length > 0) {
-        md += `**Types/Interfaces**:\n\n`;
+        md += `**Types/Interfaces/Traits**:\n\n`;
         for (const iface of file.interfaces) {
           const exportTag = iface.isExported ? '🔓' : '🔒';
           const ifaceName = '`' + iface.name + '`';

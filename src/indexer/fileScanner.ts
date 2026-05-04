@@ -21,7 +21,7 @@ export async function scanWorkspace(workspaceRoot: string): Promise<string[]> {
     const files: Set<string> = new Set();
 
     // Supported extensions
-    const supportedExtensions = ['.ts', '.tsx', '.js', '.jsx', '.py'];
+    const supportedExtensions = ['.ts', '.tsx', '.js', '.jsx', '.py', '.rs'];
 
     function scanDirectory(dir: string) {
         try {
