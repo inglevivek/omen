@@ -9,7 +9,7 @@ export function parseFile(
   workspaceRoot: string
 ): FileIndex {
   const ext = path.extname(filePath);
-  let language: 'typescript' | 'javascript' | 'python';
+  let language: 'typescript' | 'javascript' | 'python' | 'rust';
 
   if (ext === '.ts' || ext === '.tsx') {
     language = 'typescript';
@@ -18,6 +18,9 @@ export function parseFile(
   } else if (ext === '.py') {
     language = 'python';
     return parsePythonFile(filePath, content, workspaceRoot);
+  } else if (ext === '.rs') {
+    language = 'rust';
+    return parseRustFile(filePath, content, workspaceRoot);
   } else {
     throw new Error(`Unsupported file type: ${ext}`);
   }
@@ -448,6 +451,109 @@ function parsePythonFile(filePath: string, content: string, workspaceRoot: strin
           line: lineNum
         });
       }
+    }
+  }
+
+  return fileIndex;
+}
+
+// Rust parser — handles fn, struct, enum, trait, use
+function parseRustFile(filePath: string, content: string, workspaceRoot: string): FileIndex {
+  const fileIndex: FileIndex = {
+    path: filePath,
+    relativePath: path.relative(workspaceRoot, filePath),
+    functions: [],
+    classes: [],    // structs and enums are mapped here
+    interfaces: [], // traits are mapped here
+    imports: [],    // use statements
+    language: 'rust'
+  };
+
+  const lines = content.split('\n');
+  let pendingDoc: string | undefined;
+
+  for (let i = 0; i < lines.length; i++) {
+    const line = lines[i];
+    const lineNum = i + 1;
+    const trimmed = line.trim();
+
+    // Doc comments: /// or //!
+    const docMatch = trimmed.match(/^\/\/[/!]\s*(.*)/);
+    if (docMatch) {
+      pendingDoc = pendingDoc ? `${pendingDoc} ${docMatch[1]}` : docMatch[1].trim();
+      continue;
+    }
+
+    // use statements (treat as imports)
+    const useMatch = trimmed.match(/^use\s+([^;]+);/);
+    if (useMatch) {
+      fileIndex.imports.push({ source: useMatch[1].trim(), imports: [], line: lineNum });
+      pendingDoc = undefined;
+      continue;
+    }
+
+    // fn definitions (top-level and impl methods)
+    // Matches: pub fn, pub(crate) fn, async fn, pub async fn, fn
+    const fnMatch = trimmed.match(/^(?:pub(?:\([^)]*\))?\s+)?(?:async\s+)?fn\s+(\w+)\s*(?:<[^>]*>)?\s*\(([^)]*)\)(?:\s*->\s*([^{;]+))?/);
+    if (fnMatch) {
+      const isExported = trimmed.startsWith('pub');
+      const name = fnMatch[1];
+      const params = fnMatch[2]
+        .split(',')
+        .map(p => p.trim())
+        .filter(p => p !== '' && p !== 'self' && p !== '&self' && p !== '&mut self');
+      const returnType = fnMatch[3]?.trim();
+      const isAsync = trimmed.includes('async fn');
+
+      fileIndex.functions.push({
+        name,
+        params,
+        returnType,
+        line: lineNum,
+        isAsync,
+        isExported,
+        description: pendingDoc
+      });
+      pendingDoc = undefined;
+      continue;
+    }
+
+    // struct and enum definitions (mapped to classes)
+    const structMatch = trimmed.match(/^(?:pub(?:\([^)]*\))?\s+)?(?:struct|enum)\s+(\w+)/);
+    if (structMatch) {
+      const isExported = trimmed.startsWith('pub');
+      const name = structMatch[1];
+      fileIndex.classes.push({
+        name,
+        line: lineNum,
+        methods: [],
+        isExported,
+        description: pendingDoc,
+        properties: []
+      });
+      pendingDoc = undefined;
+      continue;
+    }
+
+    // trait definitions (mapped to interfaces)
+    const traitMatch = trimmed.match(/^(?:pub(?:\([^)]*\))?\s+)?trait\s+(\w+)/);
+    if (traitMatch) {
+      const isExported = trimmed.startsWith('pub');
+      const name = traitMatch[1];
+      fileIndex.interfaces.push({
+        name,
+        line: lineNum,
+        properties: [],
+        isExported,
+        description: pendingDoc
+      });
+      pendingDoc = undefined;
+      continue;
+    }
+
+    // Non-comment/non-blank lines reset pending doc
+    if (trimmed && !trimmed.startsWith('//') && !trimmed.startsWith('#[')) {
+      pendingDoc = undefined;
     }
   }
 

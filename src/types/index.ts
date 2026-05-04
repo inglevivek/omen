@@ -5,7 +5,7 @@ export interface FunctionInfo {
   line: number;
   isAsync?: boolean;
   isExported?: boolean;
-  description?: string;  // NEW: JSDoc/docstring
+  description?: string;  // JSDoc/docstring
 }
 
 export interface ClassInfo {
@@ -13,8 +13,8 @@ export interface ClassInfo {
   line: number;
   methods: FunctionInfo[];
   isExported?: boolean;
-  description?: string;  // NEW: Class documentation
-  properties?: string[];  // NEW: For SQLAlchemy columns or TypeScript properties
+  description?: string;  // Class documentation
+  properties?: string[];  // For SQLAlchemy columns or TypeScript properties
 }
 
 export interface InterfaceInfo {
@@ -22,7 +22,7 @@ export interface InterfaceInfo {
   line: number;
   properties: string[];
   isExported?: boolean;
-  description?: string;  // NEW: Interface documentation
+  description?: string;  // Interface documentation
 }
 
 export interface ImportInfo {
@@ -38,7 +38,7 @@ export interface FileIndex {
   classes: ClassInfo[];
   interfaces: InterfaceInfo[];
   imports: ImportInfo[];
-  language: 'typescript' | 'javascript' | 'python';
+  language: 'typescript' | 'javascript' | 'python' | 'rust';
 }
 
 export interface ProjectIndex {
@@ -48,9 +48,9 @@ export interface ProjectIndex {
   functionCount: number;
   classCount: number;
   files: FileIndex[];
-  techStack?: string[];  // NEW: Detected technologies
-  apiEndpoints?: ApiEndpoint[];  // NEW: Extracted API routes
-  dbSchema?: DbTable[];  // NEW: Database schema
+  techStack?: string[];  // Detected technologies
+  apiEndpoints?: ApiEndpoint[];  // Extracted API routes
+  dbSchema?: DbTable[];  // Database schema
 }
 
 export interface ApiEndpoint {
